@@ -2,7 +2,7 @@
 
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-DOT_FOLDERS="nvim"
+DOT_FOLDERS="nvim zsh"
 
 
 # Check if the operating system is Ubuntu

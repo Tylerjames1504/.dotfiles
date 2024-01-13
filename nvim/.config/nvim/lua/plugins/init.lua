@@ -8,8 +8,8 @@ return {
             dracula.setup({
                 colors = {
                     comment = "#97a2c2"
-                    }
-                })
+                }
+            })
 
             vim.cmd([[colorscheme dracula]])
         end,
@@ -19,9 +19,9 @@ return {
             require("lualine").setup({
                 options = {
                     theme = "dracula"
-                    }
-                })
-            end
+                }
+            })
+        end
     },
     { "nvim-tree/nvim-web-devicons", lazy = false},
     {{
@@ -31,7 +31,7 @@ return {
             local configs = require("nvim-treesitter.configs")
 
             configs.setup({
-                ensure_installed = { "c", "lua", "vim", "vimdoc", "javascript", "html", "go", "python" },
+                ensure_installed = { "c", "lua", "vim", "vimdoc", "javascript", "html", "go", "python", "markdown" },
                 sync_install = false,
                 highlight = { enable = true },
                 indent = { enable = true },
@@ -68,7 +68,7 @@ return {
         end
         -- (fun(buf: integer): boolean) return false to disable attaching
     },
-    { 
+    {
         {
             'VonHeikemen/lsp-zero.nvim',
             branch = 'v3.x',
@@ -136,7 +136,7 @@ return {
                 end)
 
                 require('mason-lspconfig').setup({
-                    ensure_installed = {},
+                    ensure_installed = {"gopls"},
                     handlers = {
                         lsp_zero.default_setup,
                         lua_ls = function()
@@ -196,5 +196,33 @@ return {
     },
     {'nvim-tree/nvim-tree.lua',
         config = {}},
-    {'wakatime/vim-wakatime', lazy = false}
+    {'wakatime/vim-wakatime', lazy = false},
+    -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
+    {
+        'numToStr/Comment.nvim',
+        opts = {
+            -- add any options here
+        },
+        lazy = false,
+    },
+    {
+        "tadmccorkle/markdown.nvim",
+        event = "VeryLazy",
+        opts = {
+            -- configuration here or empty for defaults
+        },
+    },
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        opts = {} -- this is equalent to setup({}) function
+    },
+    {
+        'goolord/alpha-nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        config = function ()
+            require'alpha'.setup(require'alpha.themes.startify'.config)
+        end
+    },
+
 }
