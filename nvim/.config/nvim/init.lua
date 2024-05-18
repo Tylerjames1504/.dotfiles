@@ -14,6 +14,8 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", ':NvimTreeFocus <CR>')
 vim.keymap.set("i", "jj", "<esc>")
 vim.keymap.set("i", "kk", "<esc>")
+vim.keymap.set("i", "jk", "<esc>")
+vim.keymap.set("i", "kj", "<esc>")
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
