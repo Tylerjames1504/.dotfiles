@@ -104,7 +104,6 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-bat)
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias nvim=~/nvim
 alias cd=z
 
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
@@ -112,7 +111,7 @@ source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-
+source $HOME/.local/bin/env
 export GOPATH=/Users/tyle/go
 export PATH=$PATH:$GOPATH/bin
 export PATH="/Users/tyle/.local/bin:$PATH"
@@ -120,3 +119,5 @@ export PATH="/Users/tyle/.local/bin:$PATH"
 export TALON_DIR=/Users/tyle/code/talon
 export TALON_DIR=/Users
 eval "$(zoxide init zsh)"
+
+. "$HOME/.local/bin/env"
