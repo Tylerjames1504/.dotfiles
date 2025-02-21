@@ -79,7 +79,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-bat)
 
-source /Users/tylerturner/.oh-my-zsh/oh-my-zsh.sh
+source /Users/tyle/.oh-my-zsh/oh-my-zsh.sh
 
 # User configuration
 
@@ -119,10 +119,10 @@ if [[ -s "$HOME/.p10k.zsh" ]]; then
   source "$HOME/.p10k.zsh"
 fi
 
-export GOPATH=/Users/tylerturner/go
+export GOPATH=/Users/tyle/go
 export PATH=$PATH:$GOPATH/bin
-export PATH="/Users/tylerturner/.local/bin:$PATH"
+export PATH="/Users/tyle/.local/bin:$PATH"
 # alias ls='colorls'
-export TALON_DIR=/Users/tylerturner/code/talon
+export TALON_DIR=/Users/tyle/code/talon
 export TALON_DIR=/Users
 eval "$(zoxide init zsh)"
