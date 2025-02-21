@@ -79,8 +79,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-bat)
 
-source /Users/tyler/.oh-my-zsh/oh-my-zsh.sh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -106,6 +104,7 @@ source /Users/tyler/.oh-my-zsh/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias nvim=~/nvim
 alias cd=z
 
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
@@ -113,11 +112,6 @@ source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-if [[ -s "$HOME/.p10k.zsh" ]]; then
-  source "$HOME/.p10k.zsh"
-fi
 
 export GOPATH=/Users/tyle/go
 export PATH=$PATH:$GOPATH/bin
