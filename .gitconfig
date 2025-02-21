@@ -7,7 +7,5 @@
 	email = tylerturner1504@gmail.com
 	name = Tyler Turner
 
-[url "ssh://git@github.com/"]
-    insteadOf = https://github.com/
 [core]
 	editor = nvim
