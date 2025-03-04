@@ -1,0 +1,62 @@
+local.file_match "applogs" {
+    path_targets = [{"__path__" = "/Users/tyler/code/log/heimdall.log"}]
+    sync_period = "5s"
+}
+
+loki.write "local_loki" {
+    endpoint {
+        url = "http://10.2.10.152:3100/loki/api/v1/push"
+    }
+}
+
+loki.source.file "local_files" {
+    targets    = local.file_match.applogs.targets
+    forward_to = [loki.process.add_new_label.receiver]
+}
+
+
+loki.process "add_new_label" {
+    stage.logfmt {
+        mapping = {
+            "extracted_level" = "level",
+            "extracted_logger" = "logger",
+        }
+    }
+
+    stage.labels {
+        values = {
+            "level" = "extracted_level",
+            "logger" = "extracted_logger",
+        }
+    }
+     forward_to = [loki.write.local_loki.receiver]
+}
+
+prometheus.exporter.unix "local_system" { }
+
+prometheus.scrape "scrape_metrics" {
+  targets         = prometheus.exporter.unix.local_system.targets
+  forward_to      = [prometheus.relabel.filter_metrics.receiver]
+  scrape_interval = "10s"
+}
+
+prometheus.relabel "filter_metrics" {
+  rule {
+    action        = "drop"
+    source_labels = ["env"]
+    regex         = "dev"
+  }
+
+  forward_to = [prometheus.remote_write.metrics_service.receiver]
+}
+
+prometheus.remote_write "metrics_service" {
+    endpoint {
+        url = "http://10.2.10.152:9090/api/v1/write"
+
+        // basic_auth {
+        //   username = "admin"
+        //   password = "admin"
+        // }
+    }
+}
