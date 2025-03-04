@@ -112,12 +112,11 @@ source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 source $HOME/.local/bin/env
-export GOPATH=/Users/tyler/go
+export GOPATH=/Users/tyle/go
 export PATH=$PATH:$GOPATH/bin
-export PATH="/Users/tyler/.local/bin:$PATH"
-# source ~/powerlevel10k/powerlevel10k.zsh-theme
+export PATH="/Users/tyle/.local/bin:$PATH"
 # alias ls='colorls'
-export TALON_DIR=/Users/tyler/code/talon
+export TALON_DIR=/Users/tyle/code/talon
 export TALON_DIR=/Users
 eval "$(zoxide init zsh)"
 
