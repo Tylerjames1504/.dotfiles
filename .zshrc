@@ -15,7 +15,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+
+eval "$(starship init zsh)"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -105,19 +107,21 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-bat)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cd=z
-
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+alias ll=ls -l
+alias la=ls -la
+alias gs="git status"
+alias gaa="git add ."
+alias gc="git commit"
+alias gpu="git pull"
+alias gp="git push"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-source $HOME/.local/bin/env
-export GOPATH=/Users/tyle/go
+# source $HOME/.local/bin/env
+export GOPATH=/Users/tyler/go
 export PATH=$PATH:$GOPATH/bin
-export PATH="/Users/tyle/.local/bin:$PATH"
+# export PATH="/home/tyler/.local/bin:$PATH"
 # alias ls='colorls'
-export TALON_DIR=/Users/tyle/code/talon
-export TALON_DIR=/Users
 eval "$(zoxide init zsh)"
 
-. "$HOME/.local/bin/env"
+# . "$HOME/.local/bin/env"
